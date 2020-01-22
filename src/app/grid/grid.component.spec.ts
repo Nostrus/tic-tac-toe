@@ -36,10 +36,13 @@ describe('GridComponent', () => {
             By.directive(SquareComponent)
         );
         spyOn(component, 'updateState');
-        squareElements[0].componentInstance.update.emit();
+        squareElements[5].componentInstance.update.emit();
 
         fixture.detectChanges();
 
-        expect(fixture.componentInstance.updateState).toHaveBeenCalledWith();
+        expect(fixture.componentInstance.updateState).toHaveBeenCalledWith(
+            1,
+            2
+        );
     });
 });

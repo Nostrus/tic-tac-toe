@@ -1,4 +1,7 @@
 $border-color: #ccc;
+$default-color: #fff;
+$bg-player-x: #448aff;
+$bg-player-o: #ff5252;
 
 :host {
     display: flex;
@@ -9,6 +12,8 @@ $border-color: #ccc;
     cursor: pointer;
     user-select: none;
     align-content: center;
+    color: $default-color;
+    font-size: 2rem;
 }
 
 .wrapper {
@@ -17,4 +22,12 @@ $border-color: #ccc;
     height: 100px;
     align-items: center;
     justify-content: center;
+
+    &.player-x {
+        background: $bg-player-x;
+    }
+
+    &.player-o {
+        background: $bg-player-o;
+    }
 }

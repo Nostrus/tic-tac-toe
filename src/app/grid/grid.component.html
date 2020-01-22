@@ -1,8 +1,12 @@
-<h3>Current player is: {{ currentPlayer }}</h3>
+<h3 *ngIf="!isFinished">Current player is: {{ currentPlayer }}</h3>
+
 <main>
-    <app-square
-        *ngFor="let square of squares"
-        (update)="updateState()"
-        [player]="currentPlayer"
-    ></app-square>
+    <ng-container *ngFor="let row of state; let i = index">
+        <app-square
+            *ngFor="let square of row; let j = index"
+            (update)="updateState(i, j)"
+            [player]="currentPlayer"
+            [state]="state[i][j]"
+        ></app-square>
+    </ng-container>
 </main>

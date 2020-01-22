@@ -7,25 +7,19 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class SquareComponent implements OnInit {
     @Output() update: EventEmitter<any> = new EventEmitter();
-
     @Input() player;
+    @Input() state;
+
     content = null;
     constructor() {}
 
     ngOnInit() {}
 
     setContent() {
-        if (this.content) {
+        if (this.state) {
             return false;
         }
 
-        if (this.player === 'X') {
-            this.content = 'X';
-        }
-
-        if (this.player === 'O') {
-            this.content = 'O';
-        }
         this.update.emit();
     }
 }
