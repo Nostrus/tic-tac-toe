@@ -1,13 +1,8 @@
 <main>
     <h1>Tic tac toe</h1>
-    <div *ngIf="isFinished">
-        <ng-container *ngIf="winner; else tie">
-            <h3>Player {{ winner }} wins!</h3>
-        </ng-container>
-        <ng-template #tie>
-            <h3>It's a tie!</h3>
-        </ng-template>
-    </div>
-
+    <app-finished-message
+        *ngIf="isFinished"
+        [winner]="winner"
+    ></app-finished-message>
     <app-grid (finished)="gameFinished($event)"></app-grid>
 </main>

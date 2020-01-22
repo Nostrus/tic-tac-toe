@@ -1,0 +1,10 @@
+<div>
+    <ng-container *ngIf="winner; else tie">
+        <h3>
+            Player <span class="mark">{{ winner }}</span> wins!
+        </h3>
+    </ng-container>
+    <ng-template #tie>
+        <h3>It's a tie!</h3>
+    </ng-template>
+</div>

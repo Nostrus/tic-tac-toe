@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
+import { PLAYER_1, PLAYER_2 } from '../config';
 @Component({
     selector: 'app-grid',
     templateUrl: './grid.component.html',
@@ -8,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class GridComponent implements OnInit {
     @Output() finished: EventEmitter<any> = new EventEmitter();
 
-    currentPlayer = 'X';
+    currentPlayer = PLAYER_1;
     isFinished = false;
     winner = null;
     state = [
@@ -16,6 +16,7 @@ export class GridComponent implements OnInit {
         [null, null, null],
         [null, null, null],
     ];
+    // Represents rows, columns, and diagonal lines
     winningLines = [
         ['0,0', '0,1', '0,2'],
         ['1,0', '1,1', '1,2'],
@@ -49,10 +50,10 @@ export class GridComponent implements OnInit {
     }
 
     switchPlayer() {
-        if (this.currentPlayer === 'X') {
-            this.currentPlayer = 'O';
+        if (this.currentPlayer === PLAYER_1) {
+            this.currentPlayer = PLAYER_2;
         } else {
-            this.currentPlayer = 'X';
+            this.currentPlayer = PLAYER_1;
         }
     }
 
@@ -60,6 +61,7 @@ export class GridComponent implements OnInit {
         const parts = coordsString.split(',');
         const row = parseInt(parts[0], 10);
         const column = parseInt(parts[1], 10);
+
         return this.state[row][column];
     }
 
@@ -81,7 +83,6 @@ export class GridComponent implements OnInit {
     isTie() {
         let isTie = true;
 
-        // If it's a tie
         for (const row of this.state) {
             for (const cell of row) {
                 if (cell === null) {

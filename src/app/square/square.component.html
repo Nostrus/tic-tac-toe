@@ -1,7 +1,10 @@
 <div
     class="wrapper"
     (click)="setContent()"
-    [ngClass]="{ 'player-x': state === 'X', 'player-o': state === 'O' }"
+    [ngClass]="{
+        'player-x': state === PLAYER_1,
+        'player-o': state === PLAYER_2
+    }"
 >
     <span>{{ state }}</span>
 </div>

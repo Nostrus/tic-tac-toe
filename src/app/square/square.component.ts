@@ -1,3 +1,4 @@
+import { PLAYER_1, PLAYER_2 } from './../config';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
@@ -9,8 +10,9 @@ export class SquareComponent implements OnInit {
     @Output() update: EventEmitter<any> = new EventEmitter();
     @Input() player;
     @Input() state;
+    PLAYER_1 = PLAYER_1;
+    PLAYER_2 = PLAYER_2;
 
-    content = null;
     constructor() {}
 
     ngOnInit() {}
