@@ -63,9 +63,7 @@ export class GridComponent implements OnInit {
         return this.state[row][column];
     }
 
-    isGameFinished() {
-        let isGameFinished = false;
-
+    hasSomeoneWon() {
         for (const line of this.winningLines) {
             if (
                 this.getStateFromStringPair(line[0]) !== null &&
@@ -75,11 +73,27 @@ export class GridComponent implements OnInit {
                     this.getStateFromStringPair(line[2])
             ) {
                 this.winner = this.currentPlayer;
-                isGameFinished = true;
-                break;
+                return true;
+            }
+        }
+    }
+
+    isTie() {
+        let isTie = true;
+
+        // If it's a tie
+        for (const row of this.state) {
+            for (const cell of row) {
+                if (cell === null) {
+                    isTie = false;
+                }
             }
         }
 
-        return isGameFinished;
+        return isTie;
+    }
+
+    isGameFinished() {
+        return this.hasSomeoneWon() || this.isTie();
     }
 }
