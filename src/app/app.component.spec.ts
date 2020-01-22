@@ -1,10 +1,12 @@
+import { SquareComponent } from './square/square.component';
+import { GridComponent } from './grid/grid.component';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [AppComponent],
+            declarations: [AppComponent, GridComponent, SquareComponent],
         }).compileComponents();
     }));
 
@@ -13,12 +15,6 @@ describe('AppComponent', () => {
         const app = fixture.debugElement.componentInstance;
         expect(app).toBeTruthy();
     });
-
-    // it(`should have as title 'Tic tac toe'`, () => {
-    //   const fixture = TestBed.createComponent(AppComponent);
-    //   const app = fixture.debugElement.componentInstance;
-    //   expect(app.title).toEqual('Tic tac toe');
-    // });
 
     it('should render title', () => {
         const fixture = TestBed.createComponent(AppComponent);
@@ -29,4 +25,10 @@ describe('AppComponent', () => {
             'Tic tac toe'
         );
     });
+
+    // it(`should have as title 'Tic tac toe'`, () => {
+    //   const fixture = TestBed.createComponent(AppComponent);
+    //   const app = fixture.debugElement.componentInstance;
+    //   expect(app.title).toEqual('Tic tac toe');
+    // });
 });
