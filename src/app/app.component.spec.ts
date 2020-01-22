@@ -25,10 +25,4 @@ describe('AppComponent', () => {
             'Tic tac toe'
         );
     });
-
-    // it(`should have as title 'Tic tac toe'`, () => {
-    //   const fixture = TestBed.createComponent(AppComponent);
-    //   const app = fixture.debugElement.componentInstance;
-    //   expect(app.title).toEqual('Tic tac toe');
-    // });
 });

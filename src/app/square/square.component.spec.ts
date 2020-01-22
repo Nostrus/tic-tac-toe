@@ -24,17 +24,37 @@ describe('SquareComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it(`should have proper content based on player's mark`, () => {
+    it(`should set content once clicked and make it unchangable`, () => {
         const wrapperElement = fixture.nativeElement.querySelector('.wrapper');
-        expect(component.player).toBe(null);
+        expect(component.player).toBeUndefined();
         expect(wrapperElement.textContent).toBe('');
 
         component.player = 'X';
+        fixture.debugElement
+            .query(By.css('.wrapper'))
+            .triggerEventHandler('click', {});
         fixture.detectChanges();
 
         expect(wrapperElement.textContent).toBe('X');
 
         component.player = 'O';
+        fixture.debugElement
+            .query(By.css('.wrapper'))
+            .triggerEventHandler('click', {});
+        fixture.detectChanges();
+
+        expect(wrapperElement.textContent).toBe('X');
+    });
+
+    it(`should set content properly for second player once clicked`, () => {
+        const wrapperElement = fixture.nativeElement.querySelector('.wrapper');
+        expect(component.player).toBeUndefined();
+        expect(wrapperElement.textContent).toBe('');
+
+        component.player = 'O';
+        fixture.debugElement
+            .query(By.css('.wrapper'))
+            .triggerEventHandler('click', {});
         fixture.detectChanges();
 
         expect(wrapperElement.textContent).toBe('O');
