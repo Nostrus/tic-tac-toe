@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-square',
@@ -6,8 +6,22 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./square.component.scss'],
 })
 export class SquareComponent implements OnInit {
-    mark = null;
+    @Output() update: EventEmitter<any> = new EventEmitter();
+
+    player = null;
+    content = null;
     constructor() {}
 
     ngOnInit() {}
+
+    setContent() {
+        if (this.player === 'X') {
+            this.content = 'X';
+        }
+
+        if (this.player === 'Y') {
+            this.content = 'Y';
+        }
+        this.update.emit();
+    }
 }

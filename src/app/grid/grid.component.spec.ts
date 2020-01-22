@@ -30,4 +30,16 @@ describe('GridComponent', () => {
         );
         expect(squareElements.length).toBe(9);
     });
+
+    it(`should call updateState method when a player clicks a square`, () => {
+        const squareElements = fixture.debugElement.queryAll(
+            By.directive(SquareComponent)
+        );
+        spyOn(component, 'updateState');
+        squareElements[0].componentInstance.update.emit();
+
+        fixture.detectChanges();
+
+        expect(fixture.componentInstance.updateState).toHaveBeenCalledWith();
+    });
 });

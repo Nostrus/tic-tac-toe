@@ -1,2 +1,4 @@
-<span *ngIf="mark === 'X'">X</span>
-<span *ngIf="mark === 'O'">O</span>
+<div class="wrapper" (click)="setContent()">
+    <span *ngIf="player === 'X'">X</span>
+    <span *ngIf="player === 'O'">O</span>
+</div>
