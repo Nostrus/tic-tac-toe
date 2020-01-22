@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./grid.component.scss'],
 })
 export class GridComponent implements OnInit {
-    player = null;
+    currentPlayer = 'X';
+    squares = Array(9);
     constructor() {}
 
     ngOnInit() {}
 
-    updateState() {}
+    updateState() {
+        this.switchPlayer();
+    }
+
+    switchPlayer() {
+        if (this.currentPlayer === 'X') {
+            this.currentPlayer = 'O';
+        } else {
+            this.currentPlayer = 'X';
+        }
+    }
 }

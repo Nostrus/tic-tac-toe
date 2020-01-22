@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
     selector: 'app-square',
@@ -8,19 +8,23 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class SquareComponent implements OnInit {
     @Output() update: EventEmitter<any> = new EventEmitter();
 
-    player = null;
+    @Input() player;
     content = null;
     constructor() {}
 
     ngOnInit() {}
 
     setContent() {
+        if (this.content) {
+            return false;
+        }
+
         if (this.player === 'X') {
             this.content = 'X';
         }
 
-        if (this.player === 'Y') {
-            this.content = 'Y';
+        if (this.player === 'O') {
+            this.content = 'O';
         }
         this.update.emit();
     }

@@ -1,9 +1,8 @@
-<app-square (update)="updateState()"></app-square>
-<app-square></app-square>
-<app-square></app-square>
-<app-square></app-square>
-<app-square></app-square>
-<app-square></app-square>
-<app-square></app-square>
-<app-square></app-square>
-<app-square></app-square>
+<h3>Current player is: {{ currentPlayer }}</h3>
+<main>
+    <app-square
+        *ngFor="let square of squares"
+        (update)="updateState()"
+        [player]="currentPlayer"
+    ></app-square>
+</main>
