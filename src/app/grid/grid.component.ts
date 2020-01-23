@@ -86,20 +86,21 @@ export class GridComponent implements OnInit {
                 return true;
             }
         }
+        return false;
     }
 
     isTie() {
-        let isTie = true;
+        let isGridFilled = true;
 
         for (const row of this.state) {
             for (const cell of row) {
                 if (cell === null) {
-                    isTie = false;
+                    isGridFilled = false;
                 }
             }
         }
 
-        return isTie;
+        return !this.hasSomeoneWon() && isGridFilled;
     }
 
     isGameFinished() {
