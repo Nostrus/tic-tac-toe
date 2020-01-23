@@ -1,3 +1,4 @@
+import { PLAYER_1 } from './config';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     winner;
-    currentPlayer;
+    currentPlayer = PLAYER_1;
     isFinished = false;
 
     setCurrentPlayer(player) {

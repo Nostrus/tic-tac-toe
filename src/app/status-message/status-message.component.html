@@ -1,4 +1,4 @@
-<ng-container *ngIf="currentPlayer; else gameFinished">
+<ng-container *ngIf="!isFinished; else gameFinished">
     <h3>
         Current player is: <span class="mark">{{ currentPlayer }}</span>
     </h3>

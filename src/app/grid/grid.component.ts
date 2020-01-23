@@ -6,10 +6,10 @@ import { PLAYER_1, PLAYER_2 } from '../config';
     styleUrls: ['./grid.component.scss'],
 })
 export class GridComponent implements OnInit {
-    @Output() finished: EventEmitter<any> = new EventEmitter();
+    @Output() finish: EventEmitter<any> = new EventEmitter();
     @Output() playerChange: EventEmitter<any> = new EventEmitter();
 
-    currentPlayer;
+    currentPlayer = PLAYER_1;
     isFinished = false;
     winner = null;
     state = [
@@ -32,9 +32,7 @@ export class GridComponent implements OnInit {
 
     constructor() {}
 
-    ngOnInit() {
-        this.setCurrentPlayer(PLAYER_1);
-    }
+    ngOnInit() {}
 
     updateState(row, column) {
         if (this.isFinished) {
@@ -48,7 +46,7 @@ export class GridComponent implements OnInit {
         if (!this.isGameFinished()) {
             this.switchPlayer();
         } else {
-            this.finished.emit({ winner: this.winner });
+            this.finish.emit({ winner: this.winner });
             this.setCurrentPlayer(null);
             this.isFinished = true;
         }

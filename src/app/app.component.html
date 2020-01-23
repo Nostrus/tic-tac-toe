@@ -3,11 +3,12 @@
 
     <app-status-message
         [winner]="winner"
+        [isFinished]="isFinished"
         [currentPlayer]="currentPlayer"
     ></app-status-message>
 
     <app-grid
-        (finished)="gameFinished($event)"
+        (finish)="gameFinished($event)"
         (playerChange)="setCurrentPlayer($event)"
     ></app-grid>
 </main>

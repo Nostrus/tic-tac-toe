@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class StatusMessageComponent implements OnInit {
     @Input() winner;
+    @Input() isFinished;
     @Input() currentPlayer;
 
     constructor() {}
