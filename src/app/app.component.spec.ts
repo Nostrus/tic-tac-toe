@@ -1,3 +1,4 @@
+import { FinishedMessageComponent } from './finished-message/finished-message.component';
 import { SquareComponent } from './square/square.component';
 import { GridComponent } from './grid/grid.component';
 import { TestBed, async } from '@angular/core/testing';
@@ -6,7 +7,12 @@ import { AppComponent } from './app.component';
 describe('AppComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [AppComponent, GridComponent, SquareComponent],
+            declarations: [
+                AppComponent,
+                GridComponent,
+                SquareComponent,
+                FinishedMessageComponent,
+            ],
         }).compileComponents();
     }));
 

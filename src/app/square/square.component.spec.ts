@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { PLAYER_1, PLAYER_2 } from '../config';
 import { SquareComponent } from './square.component';
 import { By } from '@angular/platform-browser';
 import { findStaticQueryIds } from '@angular/compiler';
@@ -24,26 +24,26 @@ describe('SquareComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it(`should set content once clicked and make it unchangable`, () => {
+    it(`should set content when clicked and make it unchangable`, () => {
         const wrapperElement = fixture.nativeElement.querySelector('.wrapper');
         expect(component.player).toBeUndefined();
         expect(wrapperElement.textContent).toBe('');
 
-        component.player = 'X';
+        component.state = PLAYER_1;
         fixture.debugElement
             .query(By.css('.wrapper'))
             .triggerEventHandler('click', {});
         fixture.detectChanges();
 
-        expect(wrapperElement.textContent).toBe('X');
+        expect(wrapperElement.textContent).toBe(PLAYER_1);
 
-        component.player = 'O';
+        component.state = PLAYER_2;
         fixture.debugElement
             .query(By.css('.wrapper'))
             .triggerEventHandler('click', {});
         fixture.detectChanges();
 
-        expect(wrapperElement.textContent).toBe('X');
+        expect(wrapperElement.textContent).toBe(PLAYER_1);
     });
 
     it(`should set content properly for second player once clicked`, () => {
@@ -51,17 +51,17 @@ describe('SquareComponent', () => {
         expect(component.player).toBeUndefined();
         expect(wrapperElement.textContent).toBe('');
 
-        component.player = 'O';
+        component.player = PLAYER_2;
         fixture.debugElement
             .query(By.css('.wrapper'))
             .triggerEventHandler('click', {});
         fixture.detectChanges();
 
-        expect(wrapperElement.textContent).toBe('O');
+        expect(wrapperElement.textContent).toBe(PLAYER_2);
     });
 
     it(`should set content in a square when a player clicks it`, () => {
-        component.player = 'X';
+        component.state = PLAYER_1;
         spyOn(component, 'setContent').and.callThrough();
         spyOn(component.update, 'emit');
         const wrapperElement = fixture.debugElement.query(By.css('.wrapper'));
@@ -73,6 +73,6 @@ describe('SquareComponent', () => {
         expect(component.setContent).toHaveBeenCalled();
         fixture.detectChanges();
         expect(component.update.emit).toHaveBeenCalledWith();
-        expect(wrapperElement.nativeElement.textContent).toBe('X');
+        expect(wrapperElement.nativeElement.textContent).toBe(PLAYER_1);
     });
 });
