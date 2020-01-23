@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FinishedMessageComponent } from './finished-message.component';
+import { StatusMessageComponent } from './status-message.component';
 
 describe('FinishedMessageComponent', () => {
-  let component: FinishedMessageComponent;
-  let fixture: ComponentFixture<FinishedMessageComponent>;
+  let component: StatusMessageComponent;
+  let fixture: ComponentFixture<StatusMessageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FinishedMessageComponent ]
+      declarations: [ StatusMessageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FinishedMessageComponent);
+    fixture = TestBed.createComponent(StatusMessageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

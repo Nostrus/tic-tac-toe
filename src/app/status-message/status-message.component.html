@@ -1,4 +1,9 @@
-<div>
+<ng-container *ngIf="currentPlayer; else gameFinished">
+    <h3>
+        Current player is: <span class="mark">{{ currentPlayer }}</span>
+    </h3>
+</ng-container>
+<ng-template #gameFinished>
     <ng-container *ngIf="winner; else tie">
         <h3>
             Player <span class="mark">{{ winner }}</span> wins!
@@ -7,4 +12,4 @@
     <ng-template #tie>
         <h3>It's a tie!</h3>
     </ng-template>
-</div>
+</ng-template>

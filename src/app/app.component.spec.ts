@@ -1,4 +1,4 @@
-import { FinishedMessageComponent } from './finished-message/finished-message.component';
+import { StatusMessageComponent } from './status-message/status-message.component';
 import { SquareComponent } from './square/square.component';
 import { GridComponent } from './grid/grid.component';
 import { TestBed, async } from '@angular/core/testing';
@@ -11,7 +11,7 @@ describe('AppComponent', () => {
                 AppComponent,
                 GridComponent,
                 SquareComponent,
-                FinishedMessageComponent,
+                StatusMessageComponent,
             ],
         }).compileComponents();
     }));

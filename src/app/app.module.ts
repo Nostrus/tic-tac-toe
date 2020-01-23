@@ -4,14 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { GridComponent } from './grid/grid.component';
 import { SquareComponent } from './square/square.component';
-import { FinishedMessageComponent } from './finished-message/finished-message.component';
+import { StatusMessageComponent } from './status-message/status-message.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         GridComponent,
         SquareComponent,
-        FinishedMessageComponent,
+        StatusMessageComponent,
     ],
     imports: [BrowserModule],
     providers: [],

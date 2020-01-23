@@ -49,6 +49,7 @@ export class GridComponent implements OnInit {
             this.switchPlayer();
         } else {
             this.finished.emit({ winner: this.winner });
+            this.setCurrentPlayer(null);
             this.isFinished = true;
         }
     }
