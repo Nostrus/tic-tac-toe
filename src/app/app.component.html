@@ -1,8 +1,15 @@
 <main>
     <h1>Tic tac toe</h1>
+    <h3 *ngIf="!isFinished">
+        Current player is: <span class="mark">{{ currentPlayer }}</span>
+    </h3>
+
     <app-finished-message
         *ngIf="isFinished"
         [winner]="winner"
     ></app-finished-message>
-    <app-grid (finished)="gameFinished($event)"></app-grid>
+    <app-grid
+        (finished)="gameFinished($event)"
+        (playerChange)="setCurrentPlayer($event)"
+    ></app-grid>
 </main>

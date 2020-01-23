@@ -6,8 +6,13 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-    winner = null;
+    winner;
+    currentPlayer;
     isFinished = false;
+
+    setCurrentPlayer(player) {
+        this.currentPlayer = player;
+    }
 
     gameFinished(data) {
         this.isFinished = true;

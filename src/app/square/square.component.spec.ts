@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PLAYER_1, PLAYER_2 } from '../config';
 import { SquareComponent } from './square.component';
 import { By } from '@angular/platform-browser';
-import { findStaticQueryIds } from '@angular/compiler';
 
 describe('SquareComponent', () => {
     let component: SquareComponent;

@@ -7,16 +7,14 @@ import { SquareComponent } from './square/square.component';
 import { FinishedMessageComponent } from './finished-message/finished-message.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    GridComponent,
-    SquareComponent,
-    FinishedMessageComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        GridComponent,
+        SquareComponent,
+        FinishedMessageComponent,
+    ],
+    imports: [BrowserModule],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

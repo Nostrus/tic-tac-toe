@@ -7,8 +7,9 @@ import { PLAYER_1, PLAYER_2 } from '../config';
 })
 export class GridComponent implements OnInit {
     @Output() finished: EventEmitter<any> = new EventEmitter();
+    @Output() playerChange: EventEmitter<any> = new EventEmitter();
 
-    currentPlayer = PLAYER_1;
+    currentPlayer;
     isFinished = false;
     winner = null;
     state = [
@@ -16,7 +17,8 @@ export class GridComponent implements OnInit {
         [null, null, null],
         [null, null, null],
     ];
-    // Represents rows, columns, and diagonal lines
+    // Represents coordinates for squares in
+    // rows, columns, and diagonal lines
     winningLines = [
         ['0,0', '0,1', '0,2'],
         ['1,0', '1,1', '1,2'],
@@ -30,7 +32,9 @@ export class GridComponent implements OnInit {
 
     constructor() {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.setCurrentPlayer(PLAYER_1);
+    }
 
     updateState(row, column) {
         if (this.isFinished) {
@@ -49,11 +53,16 @@ export class GridComponent implements OnInit {
         }
     }
 
+    setCurrentPlayer(player) {
+        this.currentPlayer = player;
+        this.playerChange.emit(player);
+    }
+
     switchPlayer() {
         if (this.currentPlayer === PLAYER_1) {
-            this.currentPlayer = PLAYER_2;
+            this.setCurrentPlayer(PLAYER_2);
         } else {
-            this.currentPlayer = PLAYER_1;
+            this.setCurrentPlayer(PLAYER_1);
         }
     }
 
